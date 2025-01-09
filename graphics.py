@@ -19,7 +19,7 @@ class Line:
         canvas.create_line(
             self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=fill_color, width=2
             )
-
+    
 
 class Window:
     def __init__(self, width: int, height: int):
