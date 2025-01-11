@@ -19,18 +19,35 @@ class Cell:
         self._x2 = x2
         self._y1 = y1
         self._y2 = y2
+
+        line = Line(Point(x1, y1), Point(x1, y2))
         if self.has_left_wall:
-            line = Line(Point(x1, y1), Point(x1, y2))
-            self._win.draw_line(line)
+            color = "black"
+        else:
+            color = "white"
+        self._win.draw_line(line, color=color)
+        
+        line = Line(Point(x1, y1), Point(x2, y1))
         if self.has_top_wall:
-            line = Line(Point(x1, y1), Point(x2, y1))
-            self._win.draw_line(line)
+            color = "black"
+        else:
+            color = "white"
+        self._win.draw_line(line, color=color)
+
+        line = Line(Point(x2, y1), Point(x2, y2))
         if self.has_right_wall:
-            line = Line(Point(x2, y1), Point(x2, y2))
-            self._win.draw_line(line)
+            color = "black"
+        else:
+            color = "white"
+        self._win.draw_line(line, color=color)
+
+        line = Line(Point(x1, y2), Point(x2, y2))
         if self.has_bottom_wall:
-            line = Line(Point(x1, y2), Point(x2, y2))
-            self._win.draw_line(line)
+            color = "black"
+        else:
+            color = "white"
+        self._win.draw_line(line, color=color)
+
 
     def draw_move(self, to_cell, undo=False):
         x_half1 = (self._x1 + self._x2) /2
